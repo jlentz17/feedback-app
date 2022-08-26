@@ -1,16 +1,17 @@
-import React from 'react'
-import FeedbackItem from './components/FeedbackItem'
+import { useState } from 'react'
+import FeedbackItem from './FeedbackItem'
 import PropTypes from 'prop-types'
 
 // map over FeedbackData array and return
-const FeedbackList = ({ feedback }) => {
+const FeedbackList = ({ feedback, handleDelete }) => {
   if (!feedback || feedback.length === 0) {
     return <p>No Feedback Yet</p>
   }
+
   return (
     <div className='feedback-list'>
       {feedback.map((item) => (
-        <FeedbackItem key={item.id} item={item} />
+        <FeedbackItem key={item.id} item={item} handleDelete={handleDelete} />
       ))}
     </div>
   )
