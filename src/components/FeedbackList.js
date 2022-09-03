@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import FeedbackItem from './FeedbackItem'
 import PropTypes from 'prop-types'
 
@@ -20,7 +20,7 @@ const FeedbackList = ({ feedback, handleDelete }) => {
 FeedbackList.propTypes = {
   feedback: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
       rating: PropTypes.number.isRequired,
       text: PropTypes.string.isRequired,
     })
